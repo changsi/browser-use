@@ -1,5 +1,5 @@
 [project]
-name = "browser-use"
+name = "browser-use-py310"
 description = "Make websites accessible for AI agents"
 authors = [{ name = "Gregor Zunic" }]
 version = "0.1.40"
