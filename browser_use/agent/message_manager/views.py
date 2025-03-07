@@ -19,7 +19,7 @@ class MessageMetadata(BaseModel):
 class ManagedMessage(BaseModel):
 	"""A message with its metadata"""
 
-	message: BaseMessage
+	message: Any
 	metadata: MessageMetadata = Field(default_factory=MessageMetadata)
 
 	model_config = ConfigDict(arbitrary_types_allowed=True)

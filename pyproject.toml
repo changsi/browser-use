@@ -2,7 +2,7 @@
 name = "browser-use-py310"
 description = "Make websites accessible for AI agents"
 authors = [{ name = "Gregor Zunic" }]
-version = "0.1.43"
+version = "0.1.44"
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
 classifiers = [
