@@ -44,12 +44,16 @@ class BrowserConfig:
 		chrome_instance_path: None
 			Path to a Chrome instance to use to connect to your normal browser
 			e.g. '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+		
+		playwright_browser_instance_path
+		    Path to browser executable for playwright.
 	"""
 
 	headless: bool = False
 	disable_security: bool = True
 	extra_chromium_args: list[str] = field(default_factory=list)
 	chrome_instance_path: str | None = None
+	playwright_browser_instance_path: str | None = None
 	wss_url: str | None = None
 	cdp_url: str | None = None
 
@@ -182,6 +186,7 @@ class Browser:
 	async def _setup_standard_browser(self, playwright: Playwright) -> PlaywrightBrowser:
 		"""Sets up and returns a Playwright Browser instance with anti-detection measures."""
 		browser = await playwright.chromium.launch(
+			executable_path=self.config.playwright_browser_instance_path,
 			headless=self.config.headless,
 			args=[
 				'--no-sandbox',
